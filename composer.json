@@ -1,0 +1,37 @@
+{
+  "name": "mygento/sentry",
+  "type": "magento-module",
+  "license": "proprietary",
+  "homepage": "https://github.com/mygento/sentry.git",
+  "description": "Magento Sentry PHP and JS integration",
+  "keywords": [
+    "magento",
+    "sentry"
+  ],
+  "authors": [
+    {
+      "name": "Mygento",
+      "email": "connect@mygento.net",
+      "homepage": "https://www.mygento.ru/"
+    }
+  ],
+  "require": {
+    "magento-hackathon/magento-composer-installer": "3.*",
+    "mygento/base": "1.*",
+    "raven/raven": "^0.13.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*",
+    "magento-ecg/coding-standard": "dev-master",
+    "mygento/coding-standard": "1.*",
+    "sebastian/phpdcd": "*",
+    "sebastian/phpcpd": "*",
+    "jakub-onderka/php-parallel-lint": "0.*",
+    "jakub-onderka/php-console-highlighter": "0.*",
+    "phpmd/phpmd": "@stable"
+  },
+  "extra": {
+    "magento-root-dir": ".",
+    "with-bootstrap-patch": false
+  }
+}

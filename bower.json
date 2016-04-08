@@ -1,0 +1,21 @@
+{
+  "name": "mygento_sentry",
+  "homepage": "https://github.com/mygento/sentry",
+  "authors": [
+    "Nikita Tarasov <nikita@mygento.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "raven-js": "^2.3.0"
+  }
+}
