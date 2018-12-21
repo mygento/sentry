@@ -1,1 +1,1 @@
-### Magento Sentry PHP and JS integration
+### Magento 1.x Sentry PHP

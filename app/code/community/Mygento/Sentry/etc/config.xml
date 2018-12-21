@@ -6,11 +6,6 @@
         </Mygento_Sentry>
     </modules>
     <global>
-        <blocks>
-            <sentry>
-                <class>Mygento_Sentry_Block</class>
-            </sentry>
-        </blocks>
         <helpers>
             <sentry>
                 <class>Mygento_Sentry_Helper</class>
@@ -23,7 +18,7 @@
         </models>
         <log>
             <core>
-                <writer_model>Mygento_Sentry_Model_Writer</writer_model>
+                <writer_model>Mygento_Sentry_Model_Logger</writer_model>
             </core>
         </log>
     </global>

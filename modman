@@ -1,5 +1,4 @@
 app/code/community/Mygento/Sentry app/code/community/Mygento/Sentry
 app/etc/modules/Mygento_Sentry.xml app/etc/modules/Mygento_Sentry.xml
-app/locale/en_US/Mygento_Sentry.csv app/locale/en_US/Mygento_Sentry.csv
 app/locale/ru_RU/Mygento_Sentry.csv app/locale/ru_RU/Mygento_Sentry.csv
-bower_components/raven-js/dist/raven.min.js js/raven.min.js
+errors/report.php errors/report.php
