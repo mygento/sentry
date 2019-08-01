@@ -12,31 +12,19 @@ class Mygento_Sentry_Model_Writer extends Zend_Log_Writer_Abstract
      * @var array
      */
     private $logLevels = [
-      'DEBUG'     => Raven_Client::DEBUG,
-      'INFO'      => Raven_Client::INFO,
-      'NOTICE'    => Raven_Client::INFO,
-      'WARN'      => Raven_Client::WARNING,
-      'ERR'       => Raven_Client::ERROR,
-      'CRIT'      => Raven_Client::FATAL,
-      'ALERT'     => Raven_Client::FATAL,
-      'EMERG'     => Raven_Client::FATAL,
+      'DEBUG'     => \Sentry\Severity::DEBUG,
+      'INFO'      => \Sentry\Severity::INFO,
+      'NOTICE'    => \Sentry\Severity::INFO,
+      'WARN'      => \Sentry\Severity::WARNING,
+      'ERR'       => \Sentry\Severity::ERROR,
+      'CRIT'      => \Sentry\Severity::FATAL,
+      'ALERT'     => \Sentry\Severity::FATAL,
+      'EMERG'     => \Sentry\Severity::FATAL,
     ];
-
-    /**
-     * Sentry Client
-     * @var Raven_Client
-     */
-    private $sentryClient;
-
-    /**
-     * Trace Enable
-     * @var bool
-     */
-    private $withTrace = true;
 
     public function __construct()
     {
-        $this->sentryClient = $this->getClient();
+        \Sentry\init($this->getClientOptions());
 
         if (Mage::getStoreConfig('sentry/general/loglevel')) {
             $this->addFilter(
@@ -45,22 +33,12 @@ class Mygento_Sentry_Model_Writer extends Zend_Log_Writer_Abstract
         }
     }
 
-    /**
-     * Get Client
-     * @return Raven_Client
-     */
-    public function getClient()
+    public function getClientOptions()
     {
-        $dsn = Mage::getStoreConfig('sentry/general/dsn');
-        $client = new Raven_Client($dsn);
-
-        $client->setAppPath(dirname(BP));
-        $client->setEnvironment(
-            Mage::getStoreConfig('sentry/general/environment')
-        );
-        $error_handler = new Raven_ErrorHandler($client);
-        $error_handler->registerShutdownFunction();
-        return $client;
+        return [
+            'dsn' => Mage::getStoreConfig('sentry/general/dsn'),
+            'environment' => Mage::getStoreConfig('sentry/general/environment'),
+        ];
     }
 
     /**
@@ -71,11 +49,9 @@ class Mygento_Sentry_Model_Writer extends Zend_Log_Writer_Abstract
      */
     protected function _write($event)
     {
-        $this->sentryClient->captureMessage(
+        \Sentry\captureMessage(
             $event['message'],
-            [],
-            $this->logLevels[$event['priorityName']],
-            $this->withTrace
+            new \Sentry\Severity($this->logLevels[$event['priorityName']])
         );
     }
 

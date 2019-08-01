@@ -18,7 +18,7 @@
   "require": {
     "magento-hackathon/magento-composer-installer": "3.*",
     "mygento/base": "1.*",
-    "sentry/sentry": "^1.10.0"
+    "sentry/sdk": "^2.0.3"
   },
   "require-dev": {
     "mygento/coding-standard": "1.*"

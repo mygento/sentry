@@ -2,6 +2,7 @@
 /magento.rb
 /magento.py
 /vendor/
+/nbproject
 /node_modules
 composer.lock
 
