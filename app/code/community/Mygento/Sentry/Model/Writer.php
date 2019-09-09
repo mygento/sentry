@@ -3,7 +3,7 @@
 /**
  * @category Mygento
  * @package Mygento_Sentry
- * @copyright 2016-2018 NKS LLC. (https://www.mygento.ru)
+ * @copyright 2016-2019 NKS LLC. (https://www.mygento.ru)
  */
 class Mygento_Sentry_Model_Writer extends Zend_Log_Writer_Abstract
 {
@@ -39,6 +39,11 @@ class Mygento_Sentry_Model_Writer extends Zend_Log_Writer_Abstract
             'dsn' => Mage::getStoreConfig('sentry/general/dsn'),
             'environment' => Mage::getStoreConfig('sentry/general/environment'),
         ];
+    }
+
+    public function captureException($e)
+    {
+        return \Sentry\captureException($e);
     }
 
     /**

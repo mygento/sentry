@@ -13,7 +13,8 @@ if (!Mage::getStoreConfig('sentry/general/enabled')) {
 }
 
 try {
-    $client = Mage::getSingleton('sentry/writer')->getClient();
+    /* @var $client Mygento_Sentry_Model_Writer */
+    $client = Mage::getSingleton('sentry/writer');
     $client->captureException($e);
 } catch (Exception $ex) {
 }

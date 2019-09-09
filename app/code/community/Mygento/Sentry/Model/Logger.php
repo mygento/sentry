@@ -3,7 +3,7 @@
 /**
  * @category Mygento
  * @package Mygento_Sentry
- * @copyright 2016-2018 NKS LLC. (https://www.mygento.ru)
+ * @copyright 2016-2019 NKS LLC. (https://www.mygento.ru)
  */
 class Mygento_Sentry_Model_Logger extends Zend_Log_Writer_Abstract
 {
